@@ -1,30 +1,30 @@
 package Window;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Usuario {
-	
-    private String usuario;
-    private String contraseña;
+	@JsonProperty("usuario")
+    private String username;
+	@JsonProperty("contraseña")
+    private String password;
 
-    // Constructor
-    public Usuario(String usuario, String contraseña) {
-        this.usuario = usuario;
-        this.contraseña = contraseña;
+    public Usuario() {
+        
     }
 
-    // Getters y setters
-    public String getUsuario() {
-        return usuario;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public String getPassword() {
+        return password;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
