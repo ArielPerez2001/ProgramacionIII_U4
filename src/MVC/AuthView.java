@@ -16,8 +16,6 @@ import javax.swing.JTextField;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import Window.Usuario;
-
 public class AuthView {
 
 	private JPanel panel;
@@ -27,7 +25,7 @@ public class AuthView {
 		panel = new JPanel();
 		model = new AuthModel();
 	}
-	
+
 	public JPanel login() {
 		
 		JPanel login = new JPanel();
@@ -115,13 +113,17 @@ public class AuthView {
 			 @Override
 			    public void actionPerformed(ActionEvent e) {
 				 
-				 if(model.loginModel(typeUser.getText(), typePwd.getText())){
-					 
-					 System.out.println("Bienvenue");
-				 }else {
-					 System.out.println("Verificacao de data");
-				 }
-				 	
+				 	String nombreUsuario = typeUser.getText();
+	                String contraseña = new String(typePwd.getPassword());
+	                
+	                boolean logeado = model.loginModel(nombreUsuario, contraseña);
+
+	                if (logeado) {
+	                    JOptionPane.showMessageDialog(null, "Inicio de sesión exitoso");
+	                    
+	                } else {
+	                    JOptionPane.showMessageDialog(null, "Credenciales inválidas", "Error", JOptionPane.ERROR_MESSAGE);
+	                }
 	            }
 			 
 		});
